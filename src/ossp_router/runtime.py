@@ -480,6 +480,10 @@ def load_image_size_evidence(path: Path) -> ImageSizeEvidence:
         raise InfrastructureUnavailable(
             f"이미지 크기 증거 JSON을 해석할 수 없습니다: {exc}"
         ) from exc
+    if not isinstance(value, dict):
+        raise InfrastructureUnavailable(
+            "이미지 크기 증거 JSON 최상위 값은 객체여야 합니다."
+        )
     expected_keys = {
         "schema_version",
         "report_type",
@@ -493,7 +497,7 @@ def load_image_size_evidence(path: Path) -> ImageSizeEvidence:
         "oci_layer_measurement_method",
         "rootfs_measurement_method",
     }
-    if not isinstance(value, dict) or set(value) != expected_keys:
+    if set(value) != expected_keys:
         raise InfrastructureUnavailable(
             "이미지 크기 증거의 필드 구성이 올바르지 않습니다."
         )

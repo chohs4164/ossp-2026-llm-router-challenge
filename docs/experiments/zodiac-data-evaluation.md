@@ -10,7 +10,7 @@ SPDX-License-Identifier: Apache-2.0
 ## 완료한 결과
 
 - 공개 데이터 materialization 완료: Train 1,760건 / Dev 880건
-- 공식 테스트 완료: 261개 통과 / 19개 skip
+- 공식 테스트 완료: 261개 통과 / 19개 건너뜀 (실행 기록 기준)
 - 제공 baseline 4개 공개 Dev 결과 재현
 - 공식 `hash-regex` 학습을 Train에서 재실행
 - 재학습 artifact의 공개 Dev 점수와 제공 artifact 결과 일치 확인
